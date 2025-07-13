@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>For Keith ❤️</title>
+  <style>
+    /* Import Google Fonts */
+    @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap');
+
+    /* Base styles */
+    :root {
+      --pink: #ff87b2;
+      --pink-light: #ffb6d9;
+      --pink-lighter: #ffd1dc;
+      --bg1: #ffe0f0;
+      --bg2: #fff1f9;
+      --white: #ffffff;
+      --text-dark: #333;
+      --shadow: 0 8px 32px rgba(255, 135, 178, 0.3);
+      --shadow-soft: 0 4px 16px rgba(0, 0, 0, 0.1);
+    }
+
+    *, *::before, *::after { 
+      box-sizing: border-box; 
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      overflow-x: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, var(--bg1) 0%, var(--bg2) 50%, var(--bg1) 100%);
+      background-size: 400% 400%;
+      animation: bgShift 15s ease-in-out infinite;
+      font-family: 'Poppins', sans-serif;
+      position: relative;
+    }
+
+    @keyframes bgShift {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+
+    /* Floating hearts animation */
+    .hearts {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .heart {
+      position: absolute;
+      color: rgba(255, 135, 178, 0.4);
+      font-size: 1.5rem;
+      animation: floatUp 12s linear infinite;
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(100vh) scale(0.5) rotate(0deg);
+        opacity: 0.8;
+      }
+      50% {
+        opacity: 0.6;
+      }
+      100% {
+        transform: translateY(-10vh) scale(1.2) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    /* Screen transitions */
+    .hidden { 
+      display: none !important; 
+    }
+
+    .page {
+      width: 100%;
+      max-width: 500px;
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      text-align: center;
+      z-index: 10;
+      position: relative;
+      animation: fadeIn 1s ease;
+    }
+
+    .page.hidden {
+      display: none;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Launch screen */
+    .launch-title {
+      font-family: 'Dancing Script', cursive;
+      font-size: 3.5rem;
+      color: var(--pink);
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+
+    .launch-subtitle {
+      font-size: 1.2rem;
+      color: var(--text-dark);
+      margin-bottom: 30px;
+      opacity: 0.8;
+    }
+
+    /* Buttons */
+    .btn {
+      padding: 15px 30px;
+      border: none;
+      border-radius: 50px;
+      background: linear-gradient(135deg, var(--pink), var(--pink-light));
+      color: var(--white);
+      font-size: 1.1rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: var(--shadow);
+      font-family: 'Poppins', sans-serif;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+      transition: left 0.5s ease;
+    }
+
+    .btn:hover::before {
+      left: 100%;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 40px rgba(255, 135, 178, 0.4);
+    }
+
+    .btn:active {
+      transform: translateY(0);
+    }
+
+    /* Invitation card */
+    .invitation-card {
+      width: 100%;
+      max-width: 400px;
+      background: var(--white);
+      border-radius: 20px;
+      padding: 40px 30px;
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 30px;
+      animation: cardAppear 1s ease;
+    }
+
+    @keyframes cardAppear {
+      from {
+        opacity: 0;
+        transform: scale(0.9) rotateY(10deg);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1) rotateY(0);
+      }
+    }
+
+    .invitation-card::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, var(--pink-lighter) 1px, transparent 1px);
+      background-size: 20px 20px;
+      opacity: 0.1;
+      animation: rotate 20s linear infinite;
+    }
+
+    @keyframes rotate {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    .card-subtitle {
+      font-size: 1.1rem;
+      color: var(--text-dark);
+      opacity: 0.8;
+      margin-bottom: 20px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .cute-sticker {
+      font-size: 4rem;
+      margin: 20px 0;
+      animation: wiggle 3s ease-in-out infinite;
+      display: inline-block;
+      filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1));
+    }
+
+    @keyframes wiggle {
+      0%, 100% { transform: rotate(-5deg); }
+      50% { transform: rotate(5deg); }
+    }
+
+    /* Message page */
+    .message-content {
+      width: 100%;
+      max-width: 450px;
+      background: var(--white);
+      border-radius: 20px;
+      padding: 40px;
+      box-shadow: var(--shadow);
+      position: relative;
+      animation: letterUnfold 1s ease;
+    }
+
+    @keyframes letterUnfold {
+      from {
+        opacity: 0;
+        transform: scale(0.8);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    .message-title {
+      font-family: 'Dancing Script', cursive;
+      font-size: 2.5rem;
+      color: var(--pink);
+      margin-bottom: 30px;
+    }
+
+    .message-text {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: var(--text-dark);
+      margin-bottom: 30px;
+    }
+
+    /* Memories screen */
+    .memories-title {
+      font-family: 'Dancing Script', cursive;
+      font-size: 2.5rem;
+      color: var(--pink);
+      margin-bottom: 30px;
+    }
+
+    .photo-slider {
+      position: relative;
+      width: 100%;
+      max-width: 400px;
+      height: 300px;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .slides {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+      height: 100%;
+    }
+
+    .slide {
+  width: 100%;
+  flex-shrink: 0;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+.slide-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+
+    .nav-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255, 255, 255, 0.9);
+      color: var(--pink);
+      border: none;
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      z-index: 10;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .nav-btn:hover {
+      background: var(--white);
+      transform: translateY(-50%) scale(1.1);
+    }
+
+    .nav-btn.prev { left: 15px; }
+    .nav-btn.next { right: 15px; }
+
+    /* Surprise page */
+    .surprise-title {
+      font-family: 'Dancing Script', cursive;
+      font-size: 2.8rem;
+      color: var(--pink);
+      margin-bottom: 30px;
+    }
+
+    .bouquet {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      margin: 30px 0;
+      animation: bouquetGlow 2s ease-in-out infinite;
+    }
+
+    .flower {
+      font-size: 3rem;
+      animation: flowerBounce 2s ease-in-out infinite;
+    }
+
+    .flower:nth-child(1) { animation-delay: 0s; }
+    .flower:nth-child(2) { animation-delay: 0.2s; }
+    .flower:nth-child(3) { animation-delay: 0.4s; }
+    .flower:nth-child(4) { animation-delay: 0.6s; }
+    .flower:nth-child(5) { animation-delay: 0.8s; }
+    .flower:nth-child(6) { animation-delay: 1s; }
+
+    @keyframes flowerBounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    @keyframes bouquetGlow {
+      0%, 100% { filter: drop-shadow(0 0 5px rgba(255, 135, 178, 0.3)); }
+      50% { filter: drop-shadow(0 0 20px rgba(255, 135, 178, 0.6)); }
+    }
+
+    .bouquet-text {
+      font-size: 1.2rem;
+      color: var(--text-dark);
+      margin-bottom: 40px;
+      font-weight: 500;
+    }
+
+    .cake-container {
+      margin-top: 40px;
+    }
+
+    .cake {
+      position: relative;
+      display: inline-block;
+      margin-bottom: 20px;
+    }
+
+    .cake-layer {
+      font-size: 5rem;
+      display: block;
+      animation: cakeShine 3s ease-in-out infinite;
+    }
+
+    .candles {
+      position: absolute;
+      top: -20px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 20px;
+    }
+
+    .candle {
+      font-size: 2rem;
+      animation: candleFlicker 1s ease-in-out infinite;
+    }
+
+    .candle.blown {
+      opacity: 0.3;
+      animation: none;
+    }
+
+    @keyframes cakeShine {
+      0%, 100% { filter: drop-shadow(0 0 10px rgba(255, 135, 178, 0.3)); }
+      50% { filter: drop-shadow(0 0 25px rgba(255, 135, 178, 0.6)); }
+    }
+
+    @keyframes candleFlicker {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+    }
+
+    .cake-text {
+      font-size: 1.1rem;
+      color: var(--text-dark);
+      margin-bottom: 20px;
+    }
+
+    /* Final message modal */
+    .modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      animation: modalFade 0.5s ease;
+    }
+
+    @keyframes modalFade {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .modal-content {
+      background: var(--white);
+      padding: 50px;
+      border-radius: 30px;
+      text-align: center;
+      box-shadow: var(--shadow);
+      max-width: 400px;
+      width: 90%;
+      animation: modalPop 0.5s ease;
+    }
+
+    @keyframes modalPop {
+      from { transform: scale(0.8); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    .celebration {
+      font-size: 4rem;
+      margin-bottom: 20px;
+      animation: celebrate 1s ease-in-out infinite;
+    }
+
+    @keyframes celebrate {
+      0%, 100% { transform: rotate(-5deg); }
+      50% { transform: rotate(5deg); }
+    }
+
+    .final-message {
+      font-family: 'Dancing Script', cursive;
+      font-size: 2.5rem;
+      color: var(--pink);
+      margin-bottom: 15px;
+    }
+
+    .love-message {
+      font-family: 'Dancing Script', cursive;
+      font-size: 1.8rem;
+      color: var(--pink);
+      margin-bottom: 30px;
+    }
+
+    .hearts-explosion {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 30px;
+    }
+
+    .hearts-explosion span {
+      font-size: 2rem;
+      animation: heartExplode 2s ease-in-out infinite;
+    }
+
+    .hearts-explosion span:nth-child(1) { animation-delay: 0s; }
+    .hearts-explosion span:nth-child(2) { animation-delay: 0.2s; }
+    .hearts-explosion span:nth-child(3) { animation-delay: 0.4s; }
+    .hearts-explosion span:nth-child(4) { animation-delay: 0.6s; }
+    .hearts-explosion span:nth-child(5) { animation-delay: 0.8s; }
+
+    @keyframes heartExplode {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.3); }
+    }
+
+    /* Music control */
+    .music-control {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: var(--pink);
+      color: var(--white);
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: var(--shadow);
+      z-index: 100;
+    }
+
+    .music-control:hover {
+      transform: scale(1.1);
+      box-shadow: 0 12px 40px rgba(255, 135, 178, 0.5);
+    }
+
+    /* Responsive design */
+    @media (max-width: 480px) {
+      .launch-title {
+        font-size: 2.8rem;
+      }
+      
+      .invitation-card {
+        padding: 30px 20px;
+      }
+      
+      .surprise-title {
+        font-size: 2.2rem;
+      }
+      
+      .photo-slider {
+        height: 250px;
+      }
+      
+      .modal-content {
+        padding: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Floating hearts container -->
+  <div class="hearts" aria-hidden="true"></div>
+
+  <!-- Launch Page -->
+  <div class="page" id="launch">
+    <h1 class="launch-title">For You, Keith</h1>
+    <p class="launch-subtitle">Something special is waiting for you... 💕</p>
+    <button class="btn" id="launchBtn">Open Your Gift ❤️</button>
+  </div>
+
+
+  <!-- Invitation Page -->
+  <div class="page hidden" id="invitation">
+    <div class="invitation-card">
+      <div class="cute-sticker">🫂</div>
+      <p class="card-subtitle">Something special is waiting for you...</p>
+      <button class="btn" id="openLetterBtn">Open to See Message</button>
+    </div>
+  </div>
+
+  <!-- Message Page -->
+  <div class="page hidden" id="message">.,
+    <div class="message-content">
+      <h2 class="message-title">My Dear Keith 💕</h2>
+      <div class="message-text">
+        Happy Keith Day! I just want to say how much I love you and appreciate you. You bring so much joy and happiness into my life every single day. Thank you for being the amazing person you are. I'm so grateful to have you in my life. You mean everything to me! 🥹💖
+      </div>
+      <button class="btn" id="continueBtn">Continue to Our Memories</button>
+    </div>
+  </div>
+
+  <!-- Memories Page -->
+  <div class="page hidden" id="memories">
+    <h2 class="memories-title">Our Beautiful Memories 📸</h2>
+    <div class="photo-slider">
+      <button class="nav-btn prev" id="prevBtn">❮</button>
+      <div class="slides" id="slides">
+        <div class="slide">
+          <div>
+           <img src= "images/1.jpg" class="slide-image">
+          </div>
+        </div>
+        <div class="slide">
+          <div>
+            <img src="images/2a.JPG" class="slide-image">
+          </div>
+        </div>
+        <div class="slide">
+          <div>
+            <img src="images/3.JPG" class="slide-image">
+          </div>
+        </div>
+        <div class="slide">
+          <div>
+            <img src="images/4.JPG" class="slide-image">
+          </div>
+        </div>
+        <div class="slide">
+          <div>
+            <img src="images/8.JPG" class="slide-image">
+          </div>
+        </div>
+        <div class="slide">
+          <div>
+            <img src="images/6.jpg" class="slide-image">
+          </div>
+        </div>
+        <div class="slide">
+          <div>
+            <img src="images/7.jpg" class="slide-image">
+          </div>
+        </div>
+        <div class="slide">
+          <div>
+            <img src="images/9.jpg" class="slide-image">
+          </div>
+        </div>
+      </div>
+      <button class="nav-btn next" id="nextBtn">❯</button>
+    </div>
+    <button class="btn" id="surpriseBtn" style="margin-top: 30px;">One More Surprise! 🎁</button>
+  </div>
+
+  <!-- Surprise Page -->
+  <div class="page hidden" id="surprise">
+    <h2 class="surprise-title">For You, My Love 💕</h2>
+    
+    <!-- Bouquet -->
+    <div class="bouquet" id="bouquet">
+      <div class="flower">🌹</div>
+      <div class="flower">🌺</div>
+      <div class="flower">🌻</div>
+      <div class="flower">🌷</div>
+      <div class="flower">🌸</div>
+      <div class="flower">💐</div>
+    </div>
+    
+    <p class="bouquet-text">A beautiful bouquet just for you! 🌹</p>
+    
+    <!-- Cake -->
+    <div class="cake-container" id="cakeContainer">
+      <div class="cake">
+        <div class="cake-layer">🎂</div>
+        <div class="candles">
+          <div class="candle" id="candle1">🕯️</div>
+          <div class="candle" id="candle2">🕯️</div>
+          <div class="candle" id="candle3">🕯️</div>
+        </div>
+      </div>
+      <p class="cake-text">Make a wish and blow out the candles! 🎂</p>
+      <button class="btn" id="blowBtn">💨 Blow Candles</button>
+    </div>
+  </div>
+
+  <!-- Final Message Modal -->
+  <div class="modal hidden" id="finalModal">
+    <div class="modal-content">
+      <div class="celebration">🎉</div>
+      <h1 class="final-message">HAPPY KEITH'S DAY!</h1>
+      <h2 class="love-message">I LOVE YOU SO MUCH &lt;33</h2>
+      <div class="hearts-explosion">
+        <span>💖</span>
+        <span>💕</span>
+        <span>💗</span>
+        <span>💓</span>
+        <span>💝</span>
+      </div>
+      <button class="btn" id="closeModal">Close ❤️</button>
+    </div>
+  </div>
+
+  <!-- Background Music -->
+  <audio id="bgMusic" loop>
+    <source src="beabadoobee - Glue Song (Official Music Video).mp3" type="audio/mpeg">
+  </audio>
+  
+  <button class="music-control" id="musicToggle" aria-label="Toggle music">🎵</button>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Page elements
+      const pages = {
+        launch: document.getElementById('launch'),
+        invitation: document.getElementById('invitation'),
+        message: document.getElementById('message'),
+        memories: document.getElementById('memories'),
+        surprise: document.getElementById('surprise')
+      };
+
+      // Button elements
+      const launchBtn = document.getElementById('launchBtn');
+      const openLetterBtn = document.getElementById('openLetterBtn');
+      const continueBtn = document.getElementById('continueBtn');
+      const surpriseBtn = document.getElementById('surpriseBtn');
+      const blowBtn = document.getElementById('blowBtn');
+      const closeModal = document.getElementById('closeModal');
+      const musicToggle = document.getElementById('musicToggle');
+      const finalModal = document.getElementById('finalModal');
+      
+      // Slider elements
+      const slides = document.getElementById('slides');
+      const prevBtn = document.getElementById('prevBtn');
+      const nextBtn = document.getElementById('nextBtn');
+
+      // Music
+      const music = document.getElementById('bgMusic');
+      let musicPlaying = false;
+
+      // Slider state
+      let currentSlide = 0;
+      const totalSlides = 8;
+
+      // Page transition function
+      function showPage(pageName) {
+        // Hide all pages
+        Object.values(pages).forEach(page => page.classList.add('hidden'));
+        // Show the requested page
+        if (pages[pageName]) {
+          pages[pageName].classList.remove('hidden');
+        }
+      }
+
+      // Initialize - make sure launch page is visible
+      function initializePage() {
+        // Hide all pages first
+        Object.values(pages).forEach(page => page.classList.add('hidden'));
+        // Show only the launch page
+        pages.launch.classList.remove('hidden');
+      }
+
+      // Create floating hearts
+      function createFloatingHearts() {
+        const heartsContainer = document.querySelector('.hearts');
+        for (let i = 0; i < 8; i++) {
+          const heart = document.createElement('div');
+          heart.className = 'heart';
+          heart.innerHTML = '♥';
+          heart.style.left = Math.random() * 100 + '%';
+          heart.style.animationDelay = Math.random() * 12 + 's';
+          heart.style.animationDuration = (8 + Math.random() * 4) + 's';
+          heartsContainer.appendChild(heart);
+        }
+      }
+
+      // Button event listeners
+      launchBtn.addEventListener('click', () => {
+        showPage('invitation');
+        // Try to play music
+        music.play().then(() => {
+          musicPlaying = true;
+          musicToggle.textContent = '🔊';
+        }).catch(() => {
+          musicPlaying = false;
+          musicToggle.textContent = '🔇';
+        });
+      });
+
+      openLetterBtn.addEventListener('click', () => {
+        showPage('message');
+      });
+
+      continueBtn.addEventListener('click', () => {
+        showPage('memories');
+      });
+
+      surpriseBtn.addEventListener('click', () => {
+        showPage('surprise');
+      });
+
+      blowBtn.addEventListener('click', () => {
+        // Blow out candles
+        const candles = document.querySelectorAll('.candle');
+        candles.forEach((candle, index) => {
+          setTimeout(() => {
+            candle.classList.add('blown');
+          }, index * 200);
+        });
+
+        // Show final modal after all candles are blown
+        setTimeout(() => {
+          finalModal.classList.remove('hidden');
+        }, 800);
+      });
+
+      closeModal.addEventListener('click', () => {
+        finalModal.classList.add('hidden');
+      });
+
+      // Music toggle
+      musicToggle.addEventListener('click', () => {
+        if (musicPlaying) {
+          music.pause();
+          musicToggle.textContent = '🔇';
+          musicPlaying = false;
+        } else {
+          music.play().then(() => {
+            musicToggle.textContent = '🔊';
+            musicPlaying = true;
+          }).catch(() => {
+            musicToggle.textContent = '🔇';
+            musicPlaying = false;
+          });
+        }
+      });
+
+      // Slider functions
+      function updateSlider() {
+        slides.style.transform = `translateX(-${currentSlide * 100}%)`;
+      }
+
+      prevBtn.addEventListener('click', () => {
+        currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+        updateSlider();
+      });
+
+      nextBtn.addEventListener('click', () => {
+        currentSlide = (currentSlide + 1) % totalSlides;
+        updateSlider();
+      });
+
+      // Auto-advance slider when on memories page
+      setInterval(() => {
+        if (!pages.memories.classList.contains('hidden')) {
+          currentSlide = (currentSlide + 1) % totalSlides;
+          updateSlider();
+        }
+      }, 5000);
+
+      // Initialize
+      initializePage();
+      createFloatingHearts();
+      updateSlider();
+    });
+  </script>
+</body>
+</html>
